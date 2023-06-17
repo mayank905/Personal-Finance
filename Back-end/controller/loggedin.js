@@ -9,13 +9,20 @@ const loggedin=async (request,response,next)=>{
         }     
         const decoded=await jwt.verify(request.cookies.jwt,process.env.SECRET_KEY);
         console.log(decoded);
-        dboperations.getUserByEmail(decoded.Email).then(result=>{
+        dboperations.getProfileByEmail(decoded.Email).then(result=>{
             if(result[0].length===0){
                 return response.status(401).json({
                     message: 'Unauthorized'
                 });
             }
+            if(result[0][0].logged_in==0){
+                response.clearCookie('jwt');
+                return response.status(401).json({
+                    message: 'Unauthorized'
+                });
+            }
             return response.status(201).json({
+                status: 'success',
                 message: 'Authorized',
                 result:result[0]
             });
@@ -26,21 +33,29 @@ const loggedin=async (request,response,next)=>{
     }
 }
 
-const apiloggedin=async (request,response)=>{
+const apiloggedin=async (request,response,next)=>{
     try {
         if(!request.cookies.jwt){
             return response.status(401).json({
                 message: 'Unauthorized'
                 });
-        }     
+        } 
+        console.log("about to verify jwt");    
         const decoded=await jwt.verify(request.cookies.jwt,process.env.SECRET_KEY);
-        dboperations.getUserByEmail(decoded.Email).then(result=>{
+        dboperations.getProfileById(decoded.Id).then(result=>{
             if(result[0].length===0){
                 return response.status(401).json({
                     message: 'Unauthorized'
                 });
             }
-            next()
+            if(result[0][0].logged_in==0){
+                response.clearCookie('jwt');
+                return response.status(401).json({
+                    message: 'Unauthorized'
+                });
+            }
+            request.body.profile_id=decoded.Id;
+            next();
         });
     } catch (error) {
         console.log(error);

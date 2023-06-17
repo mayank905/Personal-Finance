@@ -13,7 +13,6 @@ app.use(cors({
     origin: originRegExp,
     credentials: true
   }));
-// app.use(cors());
 
 // Middleware function to set the response header
 const setAccessControlHeader = function(req, res, next) {
