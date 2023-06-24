@@ -7,6 +7,7 @@ const expense=require('../api/expense');
 const income=require('../api/income');
 const information=require('../api/information');
 const goal=require('../api/goal');
+const budget=require('../api/budget');
 
 router.use((request,response,next)=>{
     console.log('api middleware');
@@ -22,6 +23,9 @@ router.use((request,response,next)=>{
 
  router.route('/goal').post(goal.setGoal)
  .get(goal.getGoal);
+
+ router.route('/budget').post(budget.setBudget)
+ .get(budget.getBudget);
 
  router.route('/information').get(information.getInformation);
 

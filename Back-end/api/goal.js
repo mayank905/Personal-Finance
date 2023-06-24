@@ -10,7 +10,7 @@ const setGoal = async (request, response) => {
             });
         }
         let data=request.body;
-        dboperations.addAndDeleteGoal(data).then(result => {
+        dboperations.addUpdateAndDeleteGoal(data).then(result => {
             if (!result) {
                 console.log('Goal not saved');
                 return response.status(400).json({

@@ -10,7 +10,7 @@ const setIncome = async (request, response) => {
             });
         }
         let data=request.body;
-        dboperations.addAndDeleteIncome(data).then(result => {
+        dboperations.addUpdateAndDeleteIncome(data).then(result => {
             if (!result) {
                 console.log('Income not saved');
                 return response.status(400).json({

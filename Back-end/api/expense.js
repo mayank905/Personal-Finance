@@ -9,14 +9,14 @@ const setExpense = async (request, response) => {
             });
         }
         let data=request.body;
-        dboperations.addAndDeleteExpense(data).then(result => {
+        dboperations.addUpdateAndDeleteExpense(data).then(result => {
             if (!result) {
                 console.log('Expense not saved');
                 return response.status(400).json({
                     message: 'Expense not saved'
                 });
             }
-            response.status(201).json(result[0]);
+            response.status(201).json(result);
         })
     } catch (error) {
         console.log('Something went wrong during expense process');
