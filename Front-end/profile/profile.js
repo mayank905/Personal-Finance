@@ -320,7 +320,7 @@ function sendTwoTableEditData(form, formData, form2, formData2) {
       form.reset();
       console.log('Success:', data);
       receiveCurrentTable(data, prefix1);
-      return fetch(`http://localhost:8090/api/${prefix2}`, {
+      return fetch(`https://65.2.85.58:8090/api/${prefix2}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -643,7 +643,7 @@ function getCurrentState(row, prefix) {
 // eventListeners
 
 window.addEventListener('DOMContentLoaded', () => {
-  fetch('http://localhost:8090/api/information', {
+  fetch('https://65.2.85.58:8090/api/information', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
@@ -845,7 +845,7 @@ document.addEventListener('click', function (event) {
   }
   // else if(event.target.classList.contains('logout')){
   //   event.preventDefault();
-  //   fetch('http://localhost:8090/api/logout', {
+  //   fetch('https://65.2.85.58:8090/api/logout', {
   //     method: 'POST',
   //     headers: {
   //       'Content-Type': 'application/json'
@@ -863,7 +863,7 @@ document.addEventListener('click', function (event) {
   //       .then(data => {
   //         // Handle the response data
   //         console.log(data);
-  //         window.location.href = "http://localhost:8090/login.html";
+  //         window.location.href = "https://mayank905.github.io/Personal-Finance/Front-end/login/login.html";
   //       })
   //       .catch(error => {
   //         // Handle any errors
