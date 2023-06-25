@@ -295,7 +295,7 @@ function sendTwoTableEditData(form, formData, form2, formData2) {
     return;
   }
 
-  fetch(`http://localhost:8090/api/${prefix1}`, {
+  fetch(`https://65.2.85.58:8090/api/${prefix1}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -368,7 +368,7 @@ function sendData(form, formData) {
     return;
   }
   console.log(finalData);
-  fetch(`http://localhost:8090/api/${prefix}`, {
+  fetch(`https://65.2.85.58:8090/api/${prefix}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
