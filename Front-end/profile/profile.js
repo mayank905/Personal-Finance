@@ -295,7 +295,7 @@ function sendTwoTableEditData(form, formData, form2, formData2) {
     return;
   }
 
-  fetch(`https://65.2.85.58:8090/api/${prefix1}`, {
+  fetch(`http://localhost:8090/api/${prefix1}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -320,7 +320,7 @@ function sendTwoTableEditData(form, formData, form2, formData2) {
       form.reset();
       console.log('Success:', data);
       receiveCurrentTable(data, prefix1);
-      return fetch(`https://65.2.85.58:8090/api/${prefix2}`, {
+      return fetch(`http://localhost:8090/api/${prefix2}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -368,7 +368,7 @@ function sendData(form, formData) {
     return;
   }
   console.log(finalData);
-  fetch(`https://65.2.85.58:8090/api/${prefix}`, {
+  fetch(`http://localhost:8090/api/${prefix}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -643,7 +643,7 @@ function getCurrentState(row, prefix) {
 // eventListeners
 
 window.addEventListener('DOMContentLoaded', () => {
-  fetch('https://65.2.85.58:8090/api/information', {
+  fetch('http://localhost:8090/api/information', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
@@ -845,7 +845,7 @@ document.addEventListener('click', function (event) {
   }
   // else if(event.target.classList.contains('logout')){
   //   event.preventDefault();
-  //   fetch('BACKEND_URL/api/logout', {
+  //   fetch('http://localhost:8090/api/logout', {
   //     method: 'POST',
   //     headers: {
   //       'Content-Type': 'application/json'
@@ -863,7 +863,7 @@ document.addEventListener('click', function (event) {
   //       .then(data => {
   //         // Handle the response data
   //         console.log(data);
-  //         window.location.href = "BACKEND_URL/login.html";
+  //         window.location.href = "http://localhost:8090/login.html";
   //       })
   //       .catch(error => {
   //         // Handle any errors

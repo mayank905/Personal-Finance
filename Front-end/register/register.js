@@ -17,7 +17,7 @@ document.getElementById("registration-form").addEventListener("submit", function
       Password: password,
       Email: email
   };
-  let url = 'https://65.2.85.58:8090/register';
+  let url = 'http://localhost:8090/register';
   let data1=JSON.stringify(data);
   fetch(url, {
       method: 'POST',

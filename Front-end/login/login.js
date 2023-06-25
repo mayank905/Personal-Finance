@@ -9,7 +9,7 @@ document.getElementById("registration-form").addEventListener("submit", function
       'Email': email
   };
   let data1=JSON.stringify(data);
-  fetch('https://65.2.85.58:8090/login', {
+  fetch('http://localhost:8090/login', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
